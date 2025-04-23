@@ -1,5 +1,5 @@
 import json
-
+import ast
 import requests
 from sqlalchemy import Column, Integer, String, Text
 
@@ -10,7 +10,7 @@ from superagi.models.base_model import DBBaseModel
 from superagi.models.workflows.iteration_workflow import IterationWorkflow
 
 marketplace_url = "https://app.superagi.com/api/"
-# marketplace_url = "http://localhost:8001/"
+# marketplace_url = "http://127.0.0.1:8001/"
 
 
 class AgentTemplate(DBBaseModel):
@@ -221,6 +221,6 @@ class AgentTemplate(DBBaseModel):
             else:
                 return None
         elif key == "goal" or key == "constraints" or key == "instruction":
-            return eval(value)
+            return ast.literal_eval(value)
         elif key == "tools":
-            return [str(x) for x in eval(value)]
+            return [str(x) for x in ast.literal_eval(value)]
