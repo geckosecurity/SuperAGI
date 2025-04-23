@@ -10,7 +10,7 @@ from superagi.models.base_model import DBBaseModel
 from superagi.models.workflows.iteration_workflow import IterationWorkflow
 
 marketplace_url = "https://app.superagi.com/api/"
-# marketplace_url = "http://127.0.0.1:8001/"
+# marketplace_url = "http://localhost:8001/"
 
 
 class AgentTemplate(DBBaseModel):
